@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+     <div class="container">
+        <input type="text" id="inputBox" placeholder="0">
+        <div>
+            <button class="button but1">AC</button>
+            <button class="button but1">MC</button>
+            <button class="button but1">M+</button>
+            <button class="button but1">M-</button>
+            <button class="button but1">MS</button>
+            <button class="button but1">M^</button>
+        </div>
+        <div>
+            <button class="button"><var>2<sup>nd</sup></var></button>
+            <button class="button">&#960</button>
+            <button class="button">e</button>
+            <button class="button">C</button>
+            <button class="button">bs</button>
+        </div>
+        <div>
+            <button class="button"><var>x<sup>2</sup></var></button>
+            <button class="button">1/x</button>
+            <button class="button">|x|</button>
+            <button class="button">exp</button>
+            <button class="button">mod</button>
+        </div>
+        <div>
+            <button class="button">&#8730</button>
+            <button class="button">(</button>
+            <button class="button">)</button>
+            <button class="button">n!</button>
+            <button class="button Symbolbut">/</button>
+        </div>
+        <div>
+            <button class="button"><var>x<sup>y</sup></var></button>
+            <button class="button Nobut">7</button>
+            <button class="button Nobut">8</button>
+            <button class="button Nobut">9</button>
+            <button class="button Symbolbut">*</button>
+        </div>
+        <div>
+            <button class="button"><var>10<sup>x</sup></var></button>
+            <button class="button Nobut">4</button>
+            <button class="button Nobut">5</button>
+            <button class="button Nobut">6</button>
+            <button class="button Symbolbut" >-</button>
+        </div>
+        <div>
+            <button class="button">log</button>
+            <button class="button Nobut">1</button>
+            <button class="button Nobut">2</button>
+            <button class="button Nobut">3</button>
+            <button class="button Symbolbut">+</button>
+        </div>
+        <div>
+            <button class="button">ln</button>
+            <button class="button">&plus;/&minus;</button>
+            <button class="button Nobut">0</button>
+            <button class="button">.</button>
+            <button id="equal" class="button Symbolbut">&equals;</button>
+        </div>
+     </div>
+    </body>
+
+    <!-- special scripts for integration in MTW gallery - must be placed at the bottom of the HTML after your code -->
+    <script>
+
+        function isDigit(char) {
+            return !isNaN(parseInt(char));
+        }
+
+        let input = document.getElementById('inputBox');
+        let buttons = document.querySelectorAll('button');
+
+        let string = "";
+        let arr = Array.from(buttons);
+        arr.forEach(button => {
+            button.addEventListener('click',(e) =>{
+               if(e.target.innerHTML =='='){
+                string = eval(string);
+                input.value = string;
+               }
+               else if(e.target.innerHTML == 'AC'){
+                string = "";
+                input.value = string;
+               }
+               else if(e.target.innerHTML == 'MC'){
+                string = string.substring(0,string.length-1);
+                input.value = string;
+               }
+               else if(e.target.innerHTML == '0' && !isDigit(string[string.length - 1])) {
+                 return;
+               }
+               else if(e.target.classList.contains("Symbolbut") && input.value==0) {
+                 return;
+               }
+               else { 
+                if(!e.target.classList.contains("Symbolbut") && !e.target.classList.contains("Nobut") ){
+                     return;
+               }
+               
+                string += e.target.innerHTML;
+                input.value = string;
+               }
+
+
+            })
+        })
+        
+        // custom config for the MTW app 
+        const mtwAppConfig = {
+            border: true // app border in the MTW page                    
+        }
+
+        ///////////////////////////////////////////////////////
+        // implement this functions in order to use private API        
+        const sendPrivateApiRequest = async () => {
+            // your code here:
+            // sendRequestToParent({ cat: 'getAssets' })
+        }        
+
+        const acceptPrivateApiResponse = async (data) => {
+            // process received data here:
+            // console.log(data)
+        }
+
+        // use this in order to send on document load
+        document.addEventListener('DOMContentLoaded', () => {
+            // your code here:
+            //sendRequestToParent({ method: 'getAssets' })
+        })
+
+    </script>
+    <script src="https://morethanwallet.com/appstore/index.js"></script>
+  </body>
+</html>

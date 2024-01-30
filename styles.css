@@ -1,0 +1,77 @@
+body
+{
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: whitesmoke;
+
+}
+
+.container{
+    width: 510px; margin: 15px auto; background-color: gainsboro;
+    padding:15px; border: 2cap;
+}
+
+.button {
+    float: left;
+    width: 100px;
+    height: 40px;
+    margin: 1px;
+    border: 0cap;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    cursor: pointer;
+    flex-direction: column;
+    background-color: whitesmoke;
+    font-size: medium;
+    line-height: 40px;
+}
+
+.Nobut {
+    background-color: rgb(255, 255, 255);
+    font-size: x-large;
+}
+
+.but1 {
+    width: 83px;
+    background-color: whitesmoke;
+    font-size: medium;
+}
+.Symbolbut {
+    font-size: x-large;
+}
+.button:hover {
+    background-color: rgb(35, 155, 224);
+    color: white;
+}
+
+.but:hover,
+.Nobut:hover,
+.but1:hover {
+  background-color: rgb(35, 155, 224);
+  color: white;
+}
+
+input{
+    width: 450px;
+    border: none;
+    padding:24px;
+    margin:10px;
+    border-radius: 4px;
+    text-align: right;
+    display: flex;
+    background: transparent;
+    font-size: 40px;
+}
+
+input::placeholder{
+    color: black;
+}
+
